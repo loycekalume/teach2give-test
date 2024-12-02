@@ -4,7 +4,7 @@ Write a query that will display the results below (Note: some columns might be r
 but use the column names above). It should only show 2020 data and order by driver
 points.
 '''
-'''
+
 SELECT
     d.driverName AS driver_name,
     r.raceName AS race_name,
@@ -32,10 +32,6 @@ WHERE
 ORDER BY
     rs.points DESC;
 
-'''
-
-
-
 
 
 
@@ -46,7 +42,6 @@ Note: A palindrome is word, phrase, or sequence that reads the same
 backward as forward, e.g., madam,kayak,racecar, or a phrase "nurses run"
 
 '''
-
 
 def is_palindrome(string):
     # Remove spaces and convert to lowercase for uniformity
@@ -99,18 +94,23 @@ For input 91, the program should return 19
 '''
 
 def reverse_integer(num):
-    # Convert the number to a string, reverse the digits, and handle negative numbers
+    # Convert the number to a string and remove the negative sign if present
+    str_num = str(abs(num))
+    
+    # Reverse the string representation
+    reversed_str = str_num[::-1]
+    
+    # Convert back to an integer
+    reversed_num = int(reversed_str)
     if num < 0:
-        reversed_num = int("-" + str(num)[:0:-1])
-    else:
-        reversed_num = int(str(num)[::-1])
+        reversed_num = -reversed_num
+    
     return reversed_num
 
-
-print(reverse_integer(500))  # Output: 5
-print(reverse_integer(-56))  # Output: -65
-print(reverse_integer(-90))  # Output: -9
-print(reverse_integer(91))   # Output: 19
+print(reverse_integer(500))  #  5
+print(reverse_integer(-56))  #  -65
+print(reverse_integer(-90))  #  -9
+print(reverse_integer(91))   #  19
 
 
 '''
@@ -119,7 +119,6 @@ word in the string, and then returns the result string.
 Examples:
 "hi"=> returns "Hi"
 "i love programming"=> returns "I Love Programming"
-
 '''
 
 def capitalize_word(input_string):
